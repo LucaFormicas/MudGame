@@ -3,6 +3,8 @@ package it.LucoeDavidi.mudgame;
 public class Giocatore {
     private String nome;
     private Statistiche statistiche;
+    private int hp;
+
     Stanza stanza;
 
 
@@ -14,8 +16,11 @@ public class Giocatore {
         System.out.println("Il nome del giocatore è : "  + this.nome);
         statistiche.mostraStatistiche();
     }
-    public boolean Attacco(){
-    return false;
+    public void attacco(Mostro mostro){
+        int danno = statistiche.getForza();
+        System.out.println(this.nome + " infligge " + danno + " a " + mostro.getNome());
+        mostro.prendiDanno(danno);
+
     }
 
     public void show() {
